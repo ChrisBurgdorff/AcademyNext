@@ -34,4 +34,17 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+//Model Associations
+db.courses = require("./course")(sequelize, Sequelize);
+db.sessions = require("./session")(sequelize, Sequelize);
+db.students = require("./student")(sequelize, Sequelize);
+db.teachers = require("./teacher")(sequelize, Sequelize);
+db.courses.hasOne(db.teachers);
+db.teachers.belongsToMany(db.courses, {through: 'courses_teachers'});
+db.courses.hasMany(db.students);
+db.students.belongsToMany(db.courses, {through: 'courses_students'});
+db.courses.hasMany(db.sessions);
+db.sessions.belongsto(db.courses);
+
+//Export db
 module.exports = db;
