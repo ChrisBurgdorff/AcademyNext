@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "fs": "0.0.1-security",
+    "mysql2": "^2.3.3",
     "next": "12.1.5",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "sequelize": "^6.19.0",
+    "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
     "eslint": "8.13.0",

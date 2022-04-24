@@ -1,4 +1,6 @@
-import '../styles/globals.css'
+import '../styles/bulma/bulma.css';
+import '../styles/fontawesome/css/all.min.css';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
