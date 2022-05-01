@@ -12,7 +12,16 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  //sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize({
+    host: config.host,
+    username: config.username,
+    password: config.password,
+    database: config.database,
+    dialect: config.dialect,
+    dialectModule: require('mysql2'),
+    benchmark: true
+  });
 }
 
 fs

@@ -14,6 +14,8 @@ module.exports = {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
+      net: false,
+      tls: false
     };
     config.externals = ['pg', 'sqlite3', 'tedious', 'pg-hstore'];
 
